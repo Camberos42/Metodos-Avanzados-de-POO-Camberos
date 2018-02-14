@@ -1,21 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
-public class WeatherData extends Observable {
+public class WeatherData implements Subject{
 	
+	private List<Observer> observers = new ArrayList<Observer>();
 	float temperatura;
 	float humidity;
 	float pressure;
-
-	public WeatherData(float temperature, float humidity, float pressure){
-		this.temperatura = temperature;
-		this.humidity = humidity;
-		this.pressure = pressure;
-		System.out.printf("La Temperatura es "+ temperature + " ,la humedad es " +  humidity + " y la presion es " + pressure);
-	}
-	
 	
 	public float getTemp(){
 		return this.temperatura;
@@ -45,11 +36,34 @@ public class WeatherData extends Observable {
 		
 	}
 	
-	private void  MChanges(Observable obs){
+	
+	
+	public void register(Observer displays) {
+		// TODO Auto-generated method stub
+		      observers.add(displays);
+	}
+	public void remove(Observer displays) {
+		observers.remove(displays);
+		// TODO Auto-generated method stub
 		
-		notifyObservers(obs);
+	}
+	public void notificar() {
+		// TODO Auto-generated method stub
+		for (Observer observer : observers) {
+	         observer.update(temperatura, humidity,pressure);
+	      }
+		
 	}
 	
+	public void  MChanges(float temp, float hum, float press){
+		this.humidity = temp;
+		this.temperatura = temp;
+		this.pressure = press;
+		notificar();
+		
+		
+		
+	}
 	
 	
 	
