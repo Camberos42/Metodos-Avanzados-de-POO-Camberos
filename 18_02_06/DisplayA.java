@@ -1,24 +1,19 @@
-import java.util.Observable;
-import java.util.Observer;
-
 public class DisplayA implements Observer{
 	
 	private float temp=0;
 	private float hum=0;
 	private float pres=0;
-
-	public void update(Observable obs, Object arg) {
+	/*public DisplayA(WeatherData wd){
+	      this.wd = wd;
+	      this.wd.register(this);
+	   }
+*/
+	@Override
+	public void update(float temp, float hum, float pres) {
 		// TODO Auto-generated method stub
-		if(obs instanceof WeatherData){
-			
-			 temp = ((WeatherData) obs).getTemp();
-			 hum = ((WeatherData) obs).getHum();
-			 pres = ((WeatherData) obs).getPress();
-			 
-			System.out.printf("\n"+"Nuevo Display: " + "\n" + "Temperature: "+ temp + "\n" + "Humidity: " +  hum + "\n"+ "Pressure: "+pres +"\n");
-		}
-		else
-			System.out.println("Mismo Display");
+		this.temp = temp;
+		this.hum = hum;
+		this.pres = pres;
 	}
 	
 	public void mostrar(){
