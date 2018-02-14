@@ -3,14 +3,16 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		WeatherData wd = new WeatherData(30, 15, 25);
-		DisplayA disA = new DisplayA();
+		WeatherData c1 = new WeatherData();
+		DisplayA da = new DisplayA();
+		DisplayB db = new DisplayB();
 		
-		wd.addObserver(disA);
+		c1.setHum(10);
+		c1.setTemp(10);
+		c1.setPress(12);
 		
-		wd.setTemp(12);
-		wd.setHum(8);
-		wd.setPress(35);
+		da.update(10, 12, 10);
+		da.mostrar();
 	}
 
 }
