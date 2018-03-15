@@ -4,6 +4,7 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		PizzaStore cetys = new PizzaCetys();
+		PizzaStore playas = new PizzaPlayas();
  
 		Pizza pizza = cetys.orderPizza("queso");
 		System.out.println("Jesus ordeno una " + pizza.getName() + "\n");
@@ -13,6 +14,12 @@ public class Main {
 
 		pizza = cetys.orderPizza("pepperoni");
 		System.out.println("Miguel ordeno una " + pizza.getName() + "\n");
+		
+		pizza = playas.orderPizza("queso");
+		System.out.println("Manuel ordeno una " + pizza.getName() + "\n");
+		
+		pizza = playas.orderPizza("pepperoni");
+		System.out.println("Jorge ordeno una " + pizza.getName() + "\n");
 
 	}
 
