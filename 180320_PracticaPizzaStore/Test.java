@@ -9,13 +9,13 @@ public class Test {
         System.out.println( pizza.getDescription() +
                          " Cost :" + pizza.getCost());
  
-        // create new FarmHouse pizza
+        // create new Pepperoni pizza
         Pizza pizza2 = new Pepperoni();
  
-        // decorate it with freshtomato topping
+        // decorate it with Chipotle 
         pizza2 = new Chipotle(pizza2);
  
-        //decorate it with paneer topping
+        //decorate it with tocino
         pizza2 = new Tocino(pizza2);
  
         System.out.println( pizza2.getDescription() +
